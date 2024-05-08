@@ -1,0 +1,39 @@
+#include <cs50.h>
+#include <math.h>
+#include <stdio.h>
+
+int main()
+{
+    int cents;
+    do
+    {
+        cents = get_int("change owed\n");
+    }
+    while (cents <= 0);
+    int quarter = 0;
+    while (cents >= 25)
+    {
+        cents = cents - 25;
+        quarter++;
+    }
+    int dimes = 0;
+    while (cents >= 10)
+    {
+        cents = cents - 10;
+        dimes++;
+    }
+    int nickels = 0;
+    while (cents >= 5)
+    {
+        cents = cents - 5;
+        nickels++;
+    }
+    int pennies = 0;
+    while (cents >= 1)
+    {
+        cents = cents - 1;
+        pennies++;
+    }
+    printf("number of coins = %d\n", quarter + dimes + nickels + pennies);
+    return 0;
+}
